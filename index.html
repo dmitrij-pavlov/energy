@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Вычисление потенциальной энергии</title>
+ <style>
+  body {
+   font-family: Arial, sans-serif;
+   margin: 0;
+   padding: 0;
+  }
+  h1 {
+   text-align: center;
+  }
+  form {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   margin-top: 20px;
+  }
+  input[type="number"] {
+   width: 100%;
+   padding: 8px;
+   margin: 5px;
+   box-sizing: border-box;
+   border: none;
+   border-radius: 5px;
+   box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+   font-size: 16px;
+  }
+  input[type="submit"] {
+   background-color: #4CAF50;
+   color: white;
+   border: none;
+   padding: 10px 20px;
+   border-radius: 5px;
+   font-size: 18px;
+   cursor: pointer;
+  }
+  p {
+   margin-top: 20px;
+   font-size: 18px;
+   font-weight: bold;
+   text-align: center;
+  }
+ </style>
+</head>
+<body>
+ <h1>Вычисление потенциальной энергии</h1>
+ <form onsubmit="calculatePotentialEnergy(event)">
+  <label for="mass">Масса, кг:</label>
+  <input type="number" id="mass" step="0.01" required>
+  <label for="height">Высота, м:</label>
+  <input type="number" id="height" step="0.01" required>
+  <input type="submit" value="Вычислить">
+ </form>
+ <p id="result"></p>
+ <script>
+  function calculatePotentialEnergy(event) {
+   event.preventDefault();
+   let mass = parseFloat(document.getElementById("mass").value);
+   let height = parseFloat(document.getElementById("height").value);
+   let potentialEnergy = mass * 9.8 * height;
+   document.getElementById("result").textContent = `Потенциальная энергия: ${potentialEnergy.toFixed(0)} Дж`;
+  }
+ </script>
+</body>
+</html>
